@@ -46,6 +46,15 @@ public class GameManager : MonoBehaviour
             UIManager.instance.ShowScore(score.ToString());
         }
     }
+    public void IncreaseTime()
+    {
+        StartCoroutine(WaitToDisableTimeScaler());
+    }
+    private  IEnumerator WaitToDisableTimeScaler()
+    {
+        yield return new WaitForSeconds(15);
+        Time.timeScale = 1;
+    }
     public void CheckHats()
     {
         if (PlayerPrefs.HasKey("Buy1"))

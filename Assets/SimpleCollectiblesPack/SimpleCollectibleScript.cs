@@ -62,7 +62,7 @@ public class SimpleCollectibleScript : MonoBehaviour {
 
 			//Add in code here;
 
-			Debug.Log ("Do NoType Command");
+			GetComponent<TimeIncreaser>().IncreaseTime();
 		}
 		if (CollectibleType == CollectibleTypes.Type3) {
 
