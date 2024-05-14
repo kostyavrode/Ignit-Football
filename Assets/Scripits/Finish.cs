@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Finish : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Player")
         {
-            GameManager.instance.AddCoinToRaise();
-            Destroy(gameObject);
+            GameManager.instance.FinishReached();
         }
     }
 }

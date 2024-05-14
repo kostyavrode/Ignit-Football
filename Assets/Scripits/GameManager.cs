@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private float currentTimeScale;
     private int score;
     private int money;
+    public int coinsToRaise;
     [SerializeField] private GameObject[] startObjects;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private GameObject playerHat;
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
         }
         CheckHats();
     }
+    public void AddCoinToRaise()
+    {
+        coinsToRaise +=1;
+    }    
     private void Start()
     {
         UIManager.instance.ShowMoney(money.ToString());
@@ -45,6 +50,15 @@ public class GameManager : MonoBehaviour
             score += 1;
             UIManager.instance.ShowScore(score.ToString());
         }
+    }
+    public void FinishReached()
+    {
+        isGameStarted = false;
+        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+        PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + coinsToRaise);
+        PlayerPrefs.Save();
+        //CheckBestScore();
+        UIManager.instance.ShowWinPanel();
     }
     public void IncreaseTime()
     {

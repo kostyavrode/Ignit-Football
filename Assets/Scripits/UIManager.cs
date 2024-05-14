@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject[] elements;
     [SerializeField] private GameObject blackWindow;
     [SerializeField] private AudioSource source;
+    public TMP_Text levelText;
+    public GameObject winPanel;
     public UniWebView uniWebView;
     public void CloseUI()
     {
@@ -37,6 +39,11 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetString("Sound", "true");
             PlayerPrefs.Save();
         }
+        if (!PlayerPrefs.HasKey("level"))
+        {
+            PlayerPrefs.GetInt("level", 0);
+            PlayerPrefs.Save();
+        }
         CheckSound();
     }
     private void Update()
@@ -49,6 +56,7 @@ public class UIManager : MonoBehaviour
     public void StartGame()
     {
         GameManager.instance.StartGame();
+        levelText.text += PlayerPrefs.GetInt("level").ToString();
     }
     public void CheckSound()
     {
@@ -102,6 +110,11 @@ public class UIManager : MonoBehaviour
     public void ShowLosePanel()
     {
         StartCoroutine(WaitToShowLosePanel());
+    }
+    public void ShowWinPanel()
+    {
+        inGamePanel.SetActive(false);
+        winPanel.SetActive(true);
     }
     private IEnumerator WaitToShowLosePanel()
     {

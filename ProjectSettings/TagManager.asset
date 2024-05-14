@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LoseCollision
   - Wall
+  - New tag
+  - finish
   layers:
   - Default
   - TransparentFX
