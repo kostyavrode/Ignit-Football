@@ -19,7 +19,7 @@ public class RoadSpawner : MonoBehaviour
     }
     private void CreateNewPart()
     {
-        var newPart = Instantiate(levelPrefabs[Random.Range(0, 3)]);
+        var newPart = Instantiate(levelPrefabs[Random.Range(0, levelPrefabs.Length)]);
         newPart.transform.position = gameObject.transform.position;
         Observable.Timer(System.TimeSpan.FromSeconds(timeBetweenSpawn)).TakeUntilDisable(this).Where(x=>canCreate).Subscribe(x => CreateNewPart());
     }
