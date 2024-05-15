@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private int score;
     private int money;
     public int coinsToRaise;
+    private bool isNetHat;
     [SerializeField] private GameObject[] startObjects;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private GameObject playerHat;
@@ -73,10 +74,12 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Buy1"))
         {
-            foreach (GameObject hat in hats)
-            {
-                hat.SetActive(true);
-            }
+            isNetHat = true;
+            //foreach (GameObject hat in hats)
+            //{
+            //    hat.SetActive(true);
+            //}
+            hats[0].SetActive(true);
         }
     }
     public void StartGame()
@@ -97,6 +100,10 @@ public class GameManager : MonoBehaviour
         }
         cameraM.transform.DOMove(inGameCameraPos.position, 1f);
         cameraM.transform.DORotateQuaternion(inGameCameraPos.rotation, 1f);
+        if (isNetHat)
+        {
+            hats[1].SetActive(true);
+        }
     }
     public void AddMoney()
     {
