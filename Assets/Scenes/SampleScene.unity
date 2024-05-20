@@ -25559,7 +25559,6 @@ MonoBehaviour:
   source: {fileID: 8661649033857940288}
   levelText: {fileID: 1973231555}
   winPanel: {fileID: 1965040461}
-  uniWebView: {fileID: 0}
 --- !u!114 &8661649034211397466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26218,8 +26217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21675e0753062d4fbe4a29528329d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost1: 0
-  cost2: 0
+  cost1: 10
+  cost2: 100
   buyButton1: {fileID: 8661649034039874128}
   buyButton2: {fileID: 8661649033503189923}
 --- !u!1 &8661649034278455332
@@ -26675,7 +26674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy 999
+  m_text: Buy 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}

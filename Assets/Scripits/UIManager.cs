@@ -20,7 +20,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioSource source;
     public TMP_Text levelText;
     public GameObject winPanel;
-    public UniWebView uniWebView;
     public void CloseUI()
     {
         source.Pause();
@@ -121,14 +120,5 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         losePanel.SetActive(true);
         inGamePanel.SetActive(false);
-    }
-    public void ShowPrivacy(string url)
-    {
-        var webviewObject = new GameObject("UniWebview");
-        uniWebView = webviewObject.AddComponent<UniWebView>();
-        uniWebView.Frame = new Rect(0, 0, Screen.width, Screen.height);
-        uniWebView.SetShowToolbar(true, false, true, true);
-        uniWebView.Load(url);
-        uniWebView.Show();
     }
 }
